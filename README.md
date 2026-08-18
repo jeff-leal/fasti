@@ -1,25 +1,26 @@
-# Fasti
+# Fasti: From Attention, Stance, and Topics to Ideal Points
 
 ![status](https://img.shields.io/badge/status-in%20development-orange)
 ![license](https://img.shields.io/badge/license-MIT-blue)
 
-From Attention, Stance, and Topics to Ideal points.
-
-Political actors reveal ideology through both the positions they take and the issues they emphasize, yet most text-based ideal-point measures capture only one of the two. Fasti is an item-response model that scales ideal points from issue salience and issue-specific stance jointly. It discovers topics inductively and classifies stance by transfer learning from the Manifesto Project, so it requires no human labels in the target corpus. A single latent factor generates both how much a document emphasizes an issue and which side it takes on it.
+Political actors reveal ideology through both the positions they take and the issues they emphasize, yet most text-based ideal-point measures capture only one of the two. Fasti (**F**rom **A**ttention, **S**tance, and **T**opics to **I**deal Points) is an item response theory (IRT) model that jointly scales ideal points from issue salience and mean stance per issue. It discovers issues inductively and classifies stance with a natural language inference (NLI) transformer trained on data from the [Manifesto Project](https://manifesto-project.wzb.eu/), so it requires no human labels for scaling new texts.
 
 ## Steps
 
 1. **Sentence embeddings.** Split each document into sentences and encode each sentence into a contextual embedding vector.
-2. **Topic modeling.** Reduce the dimensionality of the embeddings and cluster them by density into topics.
-3. **Stance detection.** Classify each sentence as left, right, or neutral with a fine-tuned natural language inference transformer.
-4. **Item-response model.** Estimate one ideal point per document from both the distribution of sentences across topics and the mean stance per topic.
+1. **Topic modeling.** Reduce the dimensionality of the embeddings and cluster them by density into topics, following BERTopic.
+1. **Stance detection.** Classify each sentence as left, right, or neutral with a fine-tuned NLI transformer.
+1. **IRT model.** Estimate one ideal point per document from both the distribution of sentences across topics and the mean stance per topic.
 
-The fitted parameters separate the issues that divide by stance from those that divide by salience.
+The fitted parameters can be interpreted as two measures:
+
+* How much more salient each issue is to one ideological pole than to the other.
+* How divisive each issue is in terms of left-right stance.
 
 ## Repository
 
-`code/` holds the pipeline: segmentation, embedding, topic modeling, stance training and inference, the joint fit, the comparison baselines, and the scripts that build the tables and figures. Scripts are numbered by run order. API keys are read from the environment and none are stored here.
+`code/` holds the pipeline: segmentation, embedding, topic modeling, stance training and inference, the joint fit, the comparison baselines, and the scripts that build the tables and figures. Scripts are numbered by run order.
 
 ## Citation
 
-Leal, Jefferson L. "Which Issues Divide? Interpretable Ideal-Point Estimation from Political Text." Working paper.
+Leal, Jefferson L. "Which Issues Divide? Interpretable Ideal-Point Estimation from Political Text." Working paper. [[Poster]](https://www.dropbox.com/scl/fi/q294x36auw4n0hy66ourr/Leal_Poster_Text_Ideology_Measure-Jefferson-Leal.pdf?rlkey=v4jvyrgmeboyup2p3cu5acc8x&dl=0)
