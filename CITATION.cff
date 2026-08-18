@@ -7,6 +7,7 @@ authors:
     given-names: Jefferson L.
     affiliation: University of Rochester
 license: MIT
+repository-code: "https://github.com/jeff-leal/fasti"
 preferred-citation:
   type: unpublished
   title: "Which Issues Divide? Interpretable Ideal-Point Estimation from Political Text"
