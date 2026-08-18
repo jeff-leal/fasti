@@ -1,0 +1,33 @@
+# Environments and secrets
+.env
+.Renviron
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Data and outputs
+data/
+output/
+outputs/
+figures/
+*.parquet
+*.feather
+*.pkl
+*.joblib
+*.npy
+*.npz
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

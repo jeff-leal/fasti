@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: Fasti
+message: If you use this software, please cite the working paper below.
+type: software
+authors:
+  - family-names: Leal
+    given-names: Jefferson L.
+    affiliation: University of Rochester
+license: MIT
+preferred-citation:
+  type: unpublished
+  title: "Which Issues Divide? Interpretable Ideal-Point Estimation from Political Text"
+  authors:
+    - family-names: Leal
+      given-names: Jefferson L.
+      affiliation: University of Rochester
+  year: 2026
+  notes: Working paper
